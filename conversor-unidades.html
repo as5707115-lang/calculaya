@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Conversor de unidades online - CalculaYa</title>
+
+<meta name="description" content="Convertí unidades fácilmente con el conversor gratuito de CalculaYa.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>CalculaYa</h1>
+<p>Calculadoras rápidas y gratuitas</p>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="categorias.html">Categorías</a>
+<a href="blog.html">Blog</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="intro">
+<h2>Conversor de unidades</h2>
+
+<p>
+Convertí metros, kilómetros, centímetros y otras unidades rápidamente.
+</p>
+</section>
+
+
+<div class="card">
+
+<input id="valor" type="number" placeholder="Valor">
+
+<select id="unidad">
+<option value="m_km">Metros a kilómetros</option>
+<option value="km_m">Kilómetros a metros</option>
+<option value="cm_m">Centímetros a metros</option>
+<option value="m_cm">Metros a centímetros</option>
+</select>
+
+<button onclick="convertir()">Convertir</button>
+
+<p id="resultadoConversion"></p>
+
+</div>
+
+
+<section class="intro">
+
+<h2>¿Qué es un conversor de unidades?</h2>
+
+<p>
+Un conversor de unidades permite transformar una medida de una unidad a otra de forma rápida y sencilla.
+</p>
+
+</section>
+
+</main>
+
+
+<script>
+
+function convertir(){
+
+let valor = Number(document.getElementById("valor").value);
+let unidad = document.getElementById("unidad").value;
+
+let resultado;
+
+
+if(unidad === "m_km"){
+resultado = valor / 1000;
+}
+
+if(unidad === "km_m"){
+resultado = valor * 1000;
+}
+
+if(unidad === "cm_m"){
+resultado = valor / 100;
+}
+
+if(unidad === "m_cm"){
+resultado = valor * 100;
+}
+
+
+document.getElementById("resultadoConversion").innerText =
+"Resultado: " + resultado;
+
+}
+
+</script>
+
+
+</body>
+  </html>
