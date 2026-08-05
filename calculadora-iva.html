@@ -1,0 +1,61 @@
+calculadora-iva.html<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de IVA online gratis - CalculaYa</title>
+
+<meta name="description" content="Calculá el IVA fácilmente. Descubrí cuánto pagar con IVA incluido usando la calculadora gratuita de CalculaYa.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>CalculaYa</h1>
+<p>Calculadoras rápidas y gratuitas</p>
+</header>
+
+<main>
+
+<section class="intro">
+<h2>Calculadora de IVA</h2>
+<p>
+Ingresá un precio y calculá automáticamente cuánto vale con IVA incluido.
+</p>
+</section>
+
+<div class="card">
+
+<input id="precioIVA" type="number" placeholder="Precio sin IVA">
+
+<input id="iva" type="number" value="21" placeholder="IVA %">
+
+<button onclick="ivaCalc()">Calcular</button>
+
+<p id="resultadoIVA"></p>
+
+</div>
+
+</main>
+
+<script>
+
+function ivaCalc(){
+
+let precio = Number(document.getElementById("precioIVA").value);
+let iva = Number(document.getElementById("iva").value);
+
+let total = precio + (precio * iva / 100);
+
+document.getElementById("resultadoIVA").innerText =
+"Total con IVA: $" + total.toFixed(2);
+
+}
+
+</script>
+
+</body>
+  </html>
