@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de regla de tres online - CalculaYa</title>
+
+<meta name="description" content="Calculá una regla de tres simple fácilmente con la calculadora gratuita de CalculaYa.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>CalculaYa</h1>
+<p>Calculadoras rápidas y gratuitas</p>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="categorias.html">Categorías</a>
+<a href="blog.html">Blog</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+
+</header>
+
+<main>
+
+<section class="intro">
+<h2>Calculadora de regla de tres</h2>
+
+<p>
+Ingresá tres valores y calculá el cuarto valor automáticamente.
+</p>
+</section>
+
+
+<div class="card">
+
+<input id="valorA" type="number" placeholder="Valor A">
+
+<input id="valorB" type="number" placeholder="Valor B">
+
+<input id="valorC" type="number" placeholder="Valor C">
+
+
+<button onclick="reglaTres()">Calcular</button>
+
+<p id="resultadoRegla"></p>
+
+</div>
+
+
+<section class="intro">
+
+<h2>¿Qué es la regla de tres?</h2>
+
+<p>
+La regla de tres es un método matemático que permite encontrar un valor desconocido cuando existe una relación proporcional entre varias cantidades.
+</p>
+
+<h2>Ejemplo</h2>
+
+<p>
+Si 2 productos cuestan $100, ¿cuánto cuestan 5 productos? La regla de tres permite resolverlo rápidamente.
+</p>
+
+</section>
+
+</main>
+
+
+<script>
+
+function reglaTres(){
+
+let A = Number(document.getElementById("valorA").value);
+let B = Number(document.getElementById("valorB").value);
+let C = Number(document.getElementById("valorC").value);
+
+let resultado = (B * C) / A;
+
+document.getElementById("resultadoRegla").innerText =
+"Resultado: " + resultado.toFixed(2);
+
+}
+
+</script>
+
+</body>
+  </html>
