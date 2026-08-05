@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de interés simple online - CalculaYa</title>
+
+<meta name="description" content="Calculá intereses simples fácilmente con la calculadora gratuita de CalculaYa.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>CalculaYa</h1>
+<p>Calculadoras rápidas y gratuitas</p>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="blog.html">Blog</a>
+<a href="privacidad.html">Privacidad</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="intro">
+<h2>Calculadora de interés simple</h2>
+
+<p>
+Calculá cuánto interés genera un dinero según el capital, la tasa y el tiempo.
+</p>
+</section>
+
+
+<div class="card">
+
+<input id="capital" type="number" placeholder="Capital inicial">
+
+<input id="tasa" type="number" placeholder="Tasa de interés %">
+
+<input id="tiempo" type="number" placeholder="Tiempo en años">
+
+
+<button onclick="interesCalc()">Calcular</button>
+
+<p id="resultadoInteres"></p>
+
+</div>
+
+
+<section class="intro">
+
+<h2>¿Qué es el interés simple?</h2>
+
+<p>
+El interés simple es una forma de calcular ganancias o costos financieros usando un porcentaje aplicado sobre un capital inicial.
+</p>
+
+<h2>Fórmula</h2>
+
+<p>
+Interés = Capital × Tasa × Tiempo
+</p>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+function interesCalc(){
+
+let capital = Number(document.getElementById("capital").value);
+let tasa = Number(document.getElementById("tasa").value);
+let tiempo = Number(document.getElementById("tiempo").value);
+
+
+let interes = capital * (tasa / 100) * tiempo;
+
+let total = capital + interes;
+
+
+document.getElementById("resultadoInteres").innerText =
+"Interés: $" + interes.toFixed(2) +
+" | Total: $" + total.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+</html>
