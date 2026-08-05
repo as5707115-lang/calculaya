@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de descuentos online gratis - CalculaYa</title>
+
+<meta name="description" content="Calculá descuentos fácilmente. Descubrí cuánto pagarás después de aplicar un descuento con la calculadora gratuita de CalculaYa.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>CalculaYa</h1>
+<p>Calculadoras rápidas y gratuitas</p>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="blog.html">Blog</a>
+<a href="privacidad.html">Privacidad</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+
+</header>
+
+<main>
+
+<section class="intro">
+<h2>Calculadora de descuentos</h2>
+
+<p>
+Ingresá un precio y un descuento para saber cuánto vas a pagar.
+</p>
+</section>
+
+
+<div class="card">
+
+<input id="precioDescuento" type="number" placeholder="Precio original">
+
+<input id="descuento" type="number" placeholder="Descuento %">
+
+<button onclick="descuentoCalc()">Calcular</button>
+
+<p id="resultadoDescuento"></p>
+
+</div>
+
+
+<section class="intro">
+
+<h2>¿Cómo calcular un descuento?</h2>
+
+<p>
+Un descuento reduce el precio original de un producto o servicio.
+Esta calculadora te permite saber rápidamente el precio final después de aplicar un porcentaje de descuento.
+</p>
+
+<h2>Ejemplo</h2>
+
+<p>
+Si un producto cuesta $1000 y tiene un descuento del 20%, pagarás $800.
+</p>
+
+</section>
+
+
+</main>
+
+
+<script>
+
+function descuentoCalc(){
+
+let precio = Number(document.getElementById("precioDescuento").value);
+let descuento = Number(document.getElementById("descuento").value);
+
+let resultado = precio - (precio * descuento / 100);
+
+document.getElementById("resultadoDescuento").innerText =
+"Precio final: $" + resultado.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+  </html>
