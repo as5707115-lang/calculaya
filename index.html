@@ -129,6 +129,20 @@ if(mes < 0 || (mes === 0 && hoy.getDate() < fecha.getDate())){
 
 document.getElementById("resultadoEdad").innerHTML = "Edad: " + edad + " años";
   }
+  function interesCalc(){
+
+let capital = Number(document.getElementById("capital").value);
+let interes = Number(document.getElementById("interes").value);
+let tiempo = Number(document.getElementById("tiempo").value);
+
+let ganancia = capital * (interes / 100) * tiempo;
+
+let total = capital + ganancia;
+
+document.getElementById("resultadoInteres").innerHTML =
+"Total: $" + total.toFixed(2);
+
+  }
 </script>
 
 </body>
