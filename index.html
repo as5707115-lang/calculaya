@@ -60,7 +60,14 @@
 <button onclick="descuentoCalc()">Calcular</button>
 <p id="resultadoDescuento"></p>
 </div>
-
+<div class="card">
+<h3>Calculadora de IVA</h3>
+<p>Calculá el precio con IVA incluido.</p>
+<input id="precioIVA" type="number" placeholder="Precio sin IVA">
+<input id="iva" type="number" placeholder="IVA %" value="21">
+<button onclick="ivaCalc()">Calcular</button>
+<p id="resultadoIVA"></p>
+</div>
 
 <div class="card">
 <h3>Calculadora de edad</h3>
@@ -145,6 +152,20 @@ let total = capital + ganancia;
 document.getElementById("resultadoInteres").innerHTML =
 "Total: $" + total.toFixed(2);
 
+  }
+  function ivaCalc() {
+  const precio = parseFloat(document.getElementById("precioIVA").value);
+  const iva = parseFloat(document.getElementById("iva").value);
+
+  if (isNaN(precio) || isNaN(iva)) {
+    document.getElementById("resultadoIVA").innerText = "Ingresá valores válidos";
+    return;
+  }
+
+  const total = precio + (precio * iva / 100);
+
+  document.getElementById("resultadoIVA").innerText =
+    "Total con IVA: $" + total.toFixed(2);
   }
 </script>
 
