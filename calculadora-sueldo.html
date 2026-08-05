@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de sueldo online - CalculaYa</title>
+
+<meta name="description" content="Calculá tu sueldo, pago por hora y salario mensual con la calculadora gratuita de CalculaYa.">
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>CalculaYa</h1>
+<p>Calculadoras rápidas y gratuitas</p>
+
+<nav>
+<a href="index.html">Inicio</a>
+<a href="categorias.html">Categorías</a>
+<a href="blog.html">Blog</a>
+<a href="contacto.html">Contacto</a>
+</nav>
+
+</header>
+
+
+<main>
+
+<section class="intro">
+<h2>Calculadora de sueldo</h2>
+
+<p>
+Calculá cuánto ganás según tus horas trabajadas y tu pago por hora.
+</p>
+</section>
+
+
+<div class="card">
+
+<input id="horas" type="number" placeholder="Horas trabajadas">
+
+<input id="pagoHora" type="number" placeholder="Pago por hora">
+
+
+<button onclick="sueldoCalc()">Calcular</button>
+
+<p id="resultadoSueldo"></p>
+
+</div>
+
+
+<section class="intro">
+
+<h2>¿Cómo calcular un sueldo?</h2>
+
+<p>
+Multiplicá la cantidad de horas trabajadas por el valor que recibís por cada hora.
+</p>
+
+<h2>Fórmula</h2>
+
+<p>
+Sueldo = Horas trabajadas × Pago por hora
+</p>
+
+</section>
+
+</main>
+
+
+<script>
+
+function sueldoCalc(){
+
+let horas = Number(document.getElementById("horas").value);
+let pago = Number(document.getElementById("pagoHora").value);
+
+let sueldo = horas * pago;
+
+document.getElementById("resultadoSueldo").innerText =
+"Sueldo calculado: $" + sueldo.toFixed(2);
+
+}
+
+</script>
+
+
+</body>
+  </html>
