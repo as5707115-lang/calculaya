@@ -144,3 +144,11 @@ nav a:hover {
   color: #555;
   line-height: 1.6;
   }
+.card a {
+  display: inline-block;
+  margin-top: 15px;
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  font-size: 14px;
+}
