@@ -26,17 +26,33 @@
 <input id="numero" type="number" placeholder="Número">
 <input id="porcentaje" type="number" placeholder="Porcentaje">
 <button onclick="porcentajeCalc()">Calcular</button>
-<p id="resultado"></p>
+<p id="resultadoPorcentaje"></p>
 </div>
+
+
+<div class="card">
+<h3>Calculadora de IMC</h3>
+<p>Calculá tu índice de masa corporal.</p>
+<input id="peso" type="number" placeholder="Peso en kg">
+<input id="altura" type="number" placeholder="Altura en metros">
+<button onclick="imcCalc()">Calcular</button>
+<p id="resultadoIMC"></p>
+</div>
+
+
+<div class="card">
+<h3>Calculadora de descuentos</h3>
+<p>Calculá cuánto vas a pagar con descuento.</p>
+<input id="precio" type="number" placeholder="Precio">
+<input id="descuento" type="number" placeholder="Descuento %">
+<button onclick="descuentoCalc()">Calcular</button>
+<p id="resultadoDescuento"></p>
+</div>
+
 
 <div class="card">
 <h3>Próximamente</h3>
-<p>Más calculadoras estarán disponibles.</p>
-</div>
-
-<div class="card">
-<h3>Próximamente</h3>
-<p>Herramientas útiles para todos.</p>
+<p>Más herramientas gratuitas estarán disponibles.</p>
 </div>
 
 </div>
@@ -47,13 +63,31 @@
 <p>© 2026 CalculaYa</p>
 </footer>
 
+
 <script>
+
 function porcentajeCalc(){
-let numero=document.getElementById("numero").value;
-let porcentaje=document.getElementById("porcentaje").value;
-let resultado=numero*porcentaje/100;
-document.getElementById("resultado").innerHTML="Resultado: "+resultado;
+let n=document.getElementById("numero").value;
+let p=document.getElementById("porcentaje").value;
+document.getElementById("resultadoPorcentaje").innerHTML="Resultado: "+(n*p/100);
 }
+
+
+function imcCalc(){
+let peso=document.getElementById("peso").value;
+let altura=document.getElementById("altura").value;
+let imc=peso/(altura*altura);
+document.getElementById("resultadoIMC").innerHTML="IMC: "+imc.toFixed(2);
+}
+
+
+function descuentoCalc(){
+let precio=document.getElementById("precio").value;
+let descuento=document.getElementById("descuento").value;
+let total=precio-(precio*descuento/100);
+document.getElementById("resultadoDescuento").innerHTML="Precio final: $"+total;
+}
+
 </script>
 
 </body>
