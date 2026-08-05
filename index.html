@@ -102,7 +102,20 @@ let descuento=document.getElementById("descuento").value;
 let total=precio-(precio*descuento/100);
 document.getElementById("resultadoDescuento").innerHTML="Precio final: $"+total;
 }
+function edadCalc(){
+let fecha = new Date(document.getElementById("fechaNacimiento").value);
+let hoy = new Date();
 
+let edad = hoy.getFullYear() - fecha.getFullYear();
+
+let mes = hoy.getMonth() - fecha.getMonth();
+
+if(mes < 0 || (mes === 0 && hoy.getDate() < fecha.getDate())){
+  edad--;
+}
+
+document.getElementById("resultadoEdad").innerHTML = "Edad: " + edad + " años";
+  }
 </script>
 
 </body>
