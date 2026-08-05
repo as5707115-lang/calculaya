@@ -48,9 +48,9 @@ h2 {
   background: white;
   padding: 25px;
   border-radius: 18px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
-  transition: 0.3s;
-}
+  box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+  margin-bottom: 20px;
+    }
 
 .card:hover {
   transform: translateY(-5px);
@@ -76,10 +76,10 @@ button {
   border-radius: 10px;
   cursor: pointer;
   font-size: 16px;
-  background: #2563eb;
-  color: white;
   font-weight: bold;
-  transition: 0.3s;
+  }
+button:hover {
+  opacity: 0.85;
 }
 
 button:hover {
