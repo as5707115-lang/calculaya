@@ -1,1 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de IVA - CalculaYa</title>
+</head>
+<body>
+    <h1>Calculadora de IVA</h1>
 
+    <p>Precio sin IVA:</p>
+    <input type="number" id="precio" placeholder="Ej: 1000">
+
+    <p>IVA (%):</p>
+    <input type="number" id="iva" value="21">
+
+    <br><br>
+
+    <button onclick="calcularIVA()">Calcular</button>
+
+    <h2 id="resultado"></h2>
+
+    <script>
+        function calcularIVA() {
+            const precio = parseFloat(document.getElementById("precio").value);
+            const iva = parseFloat(document.getElementById("iva").value);
+
+            if (isNaN(precio) || isNaN(iva)) {
+                document.getElementById("resultado").innerText = "Ingresá valores válidos.";
+                return;
+            }
+
+            const total = precio + (precio * iva / 100);
+
+            document.getElementById("resultado").innerText =
+                "Total con IVA: $" + total.toFixed(2);
+        }
+    </script>
+</body>
+  </html>
