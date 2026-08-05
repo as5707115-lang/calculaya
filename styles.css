@@ -84,3 +84,23 @@ footer {
     font-size: 32px;
   }
   }
+nav {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+nav a {
+  text-decoration: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  background: #f1f1f1;
+  color: #222;
+  font-size: 14px;
+}
+
+nav a:hover {
+  opacity: 0.8;
+}
