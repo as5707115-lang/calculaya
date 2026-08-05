@@ -1,1 +1,60 @@
-<!doctype html><html lang='es'><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>CalculaYa</title><link rel='stylesheet' href='styles.css'></head><body><h1>CalculaYa</h1><p>Calculadora de porcentaje</p><input id='a' type='number' placeholder='Total'><input id='b' type='number' placeholder='%'><button onclick='calc()'>Calcular</button><h2 id='r'></h2><script src='script.js'></script></body></html>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CalculaYa - Calculadoras Online</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+<header>
+<h1>CalculaYa</h1>
+<p>Calculadoras rápidas y gratuitas</p>
+</header>
+
+<main>
+
+<h2>Herramientas</h2>
+
+<div class="cards">
+
+<div class="card">
+<h3>Porcentaje</h3>
+<p>Calculá porcentajes fácilmente.</p>
+<input id="numero" type="number" placeholder="Número">
+<input id="porcentaje" type="number" placeholder="Porcentaje">
+<button onclick="porcentajeCalc()">Calcular</button>
+<p id="resultado"></p>
+</div>
+
+<div class="card">
+<h3>Próximamente</h3>
+<p>Más calculadoras estarán disponibles.</p>
+</div>
+
+<div class="card">
+<h3>Próximamente</h3>
+<p>Herramientas útiles para todos.</p>
+</div>
+
+</div>
+
+</main>
+
+<footer>
+<p>© 2026 CalculaYa</p>
+</footer>
+
+<script>
+function porcentajeCalc(){
+let numero=document.getElementById("numero").value;
+let porcentaje=document.getElementById("porcentaje").value;
+let resultado=numero*porcentaje/100;
+document.getElementById("resultado").innerHTML="Resultado: "+resultado;
+}
+</script>
+
+</body>
+  </html>
