@@ -1,25 +1,153 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Propinas | CalculaYa</title>
-<meta name="description" content="Propinas online gratis.">
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Propinas | CalculaYa</title>
+
+<meta name="description" content="Calculá una propina y cuánto debe pagar cada persona de forma rápida y gratuita.">
+
 <link rel="stylesheet" href="styles.css">
-</head><body>
+</head>
+
+<body>
+
 <header>
-<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png" alt="Logo CalculaYa" width="180">
+
+<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png"
+alt="Logo de CalculaYa"
+width="180">
+
 <p>Calculadoras rápidas y gratuitas</p>
+
 <nav>
 <a href="index.html">Inicio</a>
 <a href="categorias.html">Categorías</a>
 <a href="blog.html">Blog</a>
 <a href="contacto.html">Contacto</a>
 </nav>
+
 </header>
+
 <main>
+
 <section class="card">
-<h2>Propinas</h2>
-<p>Esta herramienta será ampliada con funciones específicas. Ya está preparada para integrarse al sitio.</p>
+
+<h2>Calculadora de propinas</h2>
+
+<p>
+Ingresá el total de la cuenta y el porcentaje de propina que querés dejar.
+</p>
+
+<label for="cuenta">Total de la cuenta:</label>
+
+<input
+type="number"
+id="cuenta"
+placeholder="Ej: 50000"
+min="0"
+step="0.01"
+>
+
+<label for="propina">Propina (%):</label>
+
+<input
+type="number"
+id="propina"
+placeholder="Ej: 10"
+min="0"
+step="0.01"
+>
+
+<label for="personas">Cantidad de personas:</label>
+
+<input
+type="number"
+id="personas"
+placeholder="Ej: 2"
+min="1"
+step="1"
+>
+
+<button onclick="calcularPropina()">
+Calcular
+</button>
+
+<p id="resultado"></p>
+
 </section>
+
+<section class="card">
+
+<h2>¿Cómo se calcula?</h2>
+
+<p>
+La propina se calcula aplicando el porcentaje elegido sobre el total de la cuenta.
+</p>
+
+<p>
+Si además ingresás la cantidad de personas, calculamos cuánto debería pagar cada una incluyendo la propina.
+</p>
+
+</section>
+
 </main>
-<footer><p>© 2026 CalculaYa - Creado por Alexis Martinez</p></footer>
-</body></html>
+
+<footer>
+
+<p>
+© 2026 CalculaYa - Creado por Alexis Martinez
+</p>
+
+</footer>
+
+<script>
+
+function calcularPropina() {
+
+const cuenta = Number(document.getElementById("cuenta").value);
+const porcentaje = Number(document.getElementById("propina").value);
+const personas = Number(document.getElementById("personas").value);
+
+const resultado = document.getElementById("resultado");
+
+if (cuenta <= 0 || porcentaje < 0 || personas <= 0) {
+
+resultado.innerText = "Ingresá valores válidos.";
+
+return;
+
+}
+
+const montoPropina = cuenta * (porcentaje / 100);
+
+const total = cuenta + montoPropina;
+
+const porPersona = total / personas;
+
+resultado.innerHTML =
+"Propina: $" +
+montoPropina.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+}) +
+"<br>Total con propina: $" +
+total.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+}) +
+"<br>Por persona: $" +
+porPersona.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+});
+
+}
+
+</script>
+
+</body>
+
+  </html>
