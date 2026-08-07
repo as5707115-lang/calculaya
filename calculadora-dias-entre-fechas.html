@@ -1,25 +1,134 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Días entre fechas | CalculaYa</title>
-<meta name="description" content="Días entre fechas online gratis.">
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Días entre Fechas | CalculaYa</title>
+
+<meta name="description" content="Calculá cuántos días hay entre dos fechas de forma rápida y gratuita con CalculaYa.">
+
 <link rel="stylesheet" href="styles.css">
-</head><body>
+</head>
+
+<body>
+
 <header>
-<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png" alt="Logo CalculaYa" width="180">
+
+<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png"
+alt="Logo de CalculaYa"
+width="180">
+
 <p>Calculadoras rápidas y gratuitas</p>
+
 <nav>
 <a href="index.html">Inicio</a>
 <a href="categorias.html">Categorías</a>
 <a href="blog.html">Blog</a>
 <a href="contacto.html">Contacto</a>
 </nav>
+
 </header>
+
 <main>
+
 <section class="card">
-<h2>Días entre fechas</h2>
-<p>Esta herramienta será ampliada con funciones específicas. Ya está preparada para integrarse al sitio.</p>
+
+<h2>Calculadora de días entre fechas</h2>
+
+<p>
+Ingresá dos fechas para saber cuántos días hay entre ellas.
+</p>
+
+<label for="fechaInicio">Fecha inicial:</label>
+
+<input
+type="date"
+id="fechaInicio"
+>
+
+<label for="fechaFin">Fecha final:</label>
+
+<input
+type="date"
+id="fechaFin"
+>
+
+<button onclick="calcularDias()">
+Calcular
+</button>
+
+<p id="resultado"></p>
+
 </section>
+
+<section class="card">
+
+<h2>¿Cómo funciona?</h2>
+
+<p>
+La herramienta calcula la diferencia exacta entre las dos fechas ingresadas.
+</p>
+
+<p>
+El resultado representa la cantidad de días transcurridos entre ambas fechas.
+</p>
+
+</section>
+
 </main>
-<footer><p>© 2026 CalculaYa - Creado por Alexis Martinez</p></footer>
-</body></html>
+
+<footer>
+
+<p>
+© 2026 CalculaYa - Creado por Alexis Martinez
+</p>
+
+</footer>
+
+<script>
+
+function calcularDias() {
+
+const inicio = document.getElementById("fechaInicio").value;
+const fin = document.getElementById("fechaFin").value;
+
+const resultado = document.getElementById("resultado");
+
+if (!inicio || !fin) {
+
+resultado.innerText = "Seleccioná las dos fechas.";
+
+return;
+
+}
+
+const fechaInicio = new Date(inicio + "T00:00:00");
+const fechaFin = new Date(fin + "T00:00:00");
+
+if (fechaFin < fechaInicio) {
+
+resultado.innerText =
+"La fecha final debe ser posterior a la fecha inicial.";
+
+return;
+
+}
+
+const diferencia =
+fechaFin.getTime() - fechaInicio.getTime();
+
+const dias =
+Math.round(diferencia / (1000 * 60 * 60 * 24));
+
+resultado.innerText =
+"Hay " + dias + " días entre las fechas.";
+
+}
+
+</script>
+
+</body>
+
+</html>
