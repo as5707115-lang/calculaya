@@ -1,25 +1,147 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Plazo fijo | CalculaYa</title>
-<meta name="description" content="Plazo fijo online gratis.">
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Plazo Fijo | CalculaYa</title>
+
+<meta name="description" content="Calculá cuánto podés ganar con un plazo fijo de forma rápida y gratuita.">
+
 <link rel="stylesheet" href="styles.css">
-</head><body>
+</head>
+
+<body>
+
 <header>
-<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png" alt="Logo CalculaYa" width="180">
+
+<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png"
+alt="Logo de CalculaYa"
+width="180">
+
 <p>Calculadoras rápidas y gratuitas</p>
+
 <nav>
 <a href="index.html">Inicio</a>
 <a href="categorias.html">Categorías</a>
 <a href="blog.html">Blog</a>
 <a href="contacto.html">Contacto</a>
 </nav>
+
 </header>
+
+
 <main>
+
 <section class="card">
-<h2>Plazo fijo</h2>
-<p>Esta herramienta será ampliada con funciones específicas. Ya está preparada para integrarse al sitio.</p>
+
+<h2>Calculadora de Plazo Fijo</h2>
+
+<p>
+Calculá el interés estimado que podés obtener al colocar dinero en un plazo fijo.
+</p>
+
+<label for="capital">Dinero a invertir:</label>
+
+<input
+type="number"
+id="capital"
+placeholder="Ej: 100000"
+min="0"
+>
+
+<label for="tasa">Tasa anual (%):</label>
+
+<input
+type="number"
+id="tasa"
+placeholder="Ej: 30"
+min="0"
+step="0.01"
+>
+
+<label for="dias">Cantidad de días:</label>
+
+<input
+type="number"
+id="dias"
+placeholder="Ej: 30"
+min="1"
+>
+
+<button onclick="calcularPlazoFijo()">
+Calcular
+</button>
+
+<p id="resultado"></p>
+
 </section>
+
+
+<section class="card">
+
+<h2>¿Cómo se calcula?</h2>
+
+<p>
+El cálculo utiliza el capital invertido, la tasa anual ingresada y la cantidad de días del plazo.
+</p>
+
+<p>
+El resultado es una estimación y la tasa efectiva o las condiciones pueden variar según la entidad financiera.
+</p>
+
+</section>
+
 </main>
-<footer><p>© 2026 CalculaYa - Creado por Alexis Martinez</p></footer>
-</body></html>
+
+
+<footer>
+
+<p>
+© 2026 CalculaYa - Creado por Alexis Martinez
+</p>
+
+</footer>
+
+
+<script>
+
+function calcularPlazoFijo() {
+
+const capital = Number(document.getElementById("capital").value);
+const tasa = Number(document.getElementById("tasa").value);
+const dias = Number(document.getElementById("dias").value);
+
+const resultado = document.getElementById("resultado");
+
+if (capital <= 0 || tasa < 0 || dias <= 0) {
+
+resultado.innerText = "Ingresá valores válidos.";
+
+return;
+
+}
+
+const interes = capital * (tasa / 100) * (dias / 365);
+
+const total = capital + interes;
+
+resultado.innerText =
+"Interés estimado: $" + interes.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+}) +
+" | Total estimado: $" +
+total.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+});
+
+}
+
+</script>
+
+</body>
+
+  </html>
