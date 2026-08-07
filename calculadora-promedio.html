@@ -1,25 +1,130 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Promedio | CalculaYa</title>
-<meta name="description" content="Promedio online gratis.">
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Promedio | CalculaYa</title>
+
+<meta name="description" content="Calculá el promedio de varios números de forma rápida y gratuita con CalculaYa.">
+
 <link rel="stylesheet" href="styles.css">
-</head><body>
+</head>
+
+<body>
+
 <header>
-<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png" alt="Logo CalculaYa" width="180">
+
+<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png"
+alt="Logo de CalculaYa"
+width="180">
+
 <p>Calculadoras rápidas y gratuitas</p>
+
 <nav>
 <a href="index.html">Inicio</a>
 <a href="categorias.html">Categorías</a>
 <a href="blog.html">Blog</a>
 <a href="contacto.html">Contacto</a>
 </nav>
+
 </header>
+
 <main>
+
 <section class="card">
-<h2>Promedio</h2>
-<p>Esta herramienta será ampliada con funciones específicas. Ya está preparada para integrarse al sitio.</p>
+
+<h2>Calculadora de promedio</h2>
+
+<p>
+Ingresá varios números separados por comas para calcular su promedio.
+</p>
+
+<input
+type="text"
+id="numeros"
+placeholder="Ej: 8, 7, 10, 9"
+>
+
+<button onclick="calcularPromedio()">
+Calcular promedio
+</button>
+
+<p id="resultado"></p>
+
 </section>
+
+<section class="card">
+
+<h2>¿Cómo se calcula?</h2>
+
+<p>
+El promedio se obtiene sumando todos los valores y dividiendo el resultado por la cantidad de valores ingresados.
+</p>
+
+<p>
+Por ejemplo: 8, 7 y 10 tienen un promedio de 8,33.
+</p>
+
+</section>
+
 </main>
-<footer><p>© 2026 CalculaYa - Creado por Alexis Martinez</p></footer>
-</body></html>
+
+<footer>
+
+<p>
+© 2026 CalculaYa - Creado por Alexis Martinez
+</p>
+
+</footer>
+
+<script>
+
+function calcularPromedio() {
+
+const entrada = document.getElementById("numeros").value.trim();
+const resultado = document.getElementById("resultado");
+
+if (!entrada) {
+
+resultado.innerText = "Ingresá al menos un número.";
+
+return;
+
+}
+
+const numeros = entrada
+.split(",")
+.map(numero => Number(numero.trim()));
+
+if (numeros.some(numero => !Number.isFinite(numero))) {
+
+resultado.innerText =
+"Revisá los números ingresados. Separalos usando comas.";
+
+return;
+
+}
+
+const suma = numeros.reduce(
+(total, numero) => total + numero,
+0
+);
+
+const promedio = suma / numeros.length;
+
+resultado.innerText =
+"Promedio: " +
+promedio.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+});
+
+}
+
+</script>
+
+</body>
+
+  </html>
