@@ -1,25 +1,164 @@
 <!DOCTYPE html>
-<html lang="es"><head>
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Cuotas | CalculaYa</title>
-<meta name="description" content="Cuotas online gratis.">
+<html lang="es">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Calculadora de Cuotas | CalculaYa</title>
+
+<meta name="description" content="Calculá el valor estimado de tus cuotas de forma rápida y gratuita con CalculaYa.">
+
 <link rel="stylesheet" href="styles.css">
-</head><body>
+</head>
+
+<body>
+
 <header>
-<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png" alt="Logo CalculaYa" width="180">
+
+<img src="images/file_000000000b24820e9e9b36cddaf45bcf.png"
+alt="Logo de CalculaYa"
+width="180">
+
 <p>Calculadoras rápidas y gratuitas</p>
+
 <nav>
 <a href="index.html">Inicio</a>
 <a href="categorias.html">Categorías</a>
 <a href="blog.html">Blog</a>
 <a href="contacto.html">Contacto</a>
 </nav>
+
 </header>
+
 <main>
+
 <section class="card">
-<h2>Cuotas</h2>
-<p>Esta herramienta será ampliada con funciones específicas. Ya está preparada para integrarse al sitio.</p>
+
+<h2>Calculadora de Cuotas</h2>
+
+<p>
+Calculá una cuota mensual estimada ingresando el monto, la tasa anual y la cantidad de cuotas.
+</p>
+
+<label for="monto">Monto:</label>
+
+<input
+type="number"
+id="monto"
+placeholder="Ej: 500000"
+min="0"
+>
+
+<label for="tasa">Tasa anual (%):</label>
+
+<input
+type="number"
+id="tasa"
+placeholder="Ej: 30"
+min="0"
+step="0.01"
+>
+
+<label for="cuotas">Cantidad de cuotas:</label>
+
+<input
+type="number"
+id="cuotas"
+placeholder="Ej: 12"
+min="1"
+>
+
+<button onclick="calcularCuotas()">
+Calcular
+</button>
+
+<p id="resultado"></p>
+
 </section>
+
+<section class="card">
+
+<h2>¿Cómo funciona?</h2>
+
+<p>
+La calculadora utiliza un sistema de cuota fija con una tasa mensual derivada de la tasa anual ingresada.
+</p>
+
+<p>
+El resultado es estimativo y no incluye posibles impuestos, seguros, comisiones u otros cargos que pueda aplicar una entidad financiera.
+</p>
+
+</section>
+
 </main>
-<footer><p>© 2026 CalculaYa - Creado por Alexis Martinez</p></footer>
-</body></html>
+
+<footer>
+
+<p>
+© 2026 CalculaYa - Creado por Alexis Martinez
+</p>
+
+</footer>
+
+<script>
+
+function calcularCuotas() {
+
+const monto = Number(document.getElementById("monto").value);
+const tasaAnual = Number(document.getElementById("tasa").value);
+const cantidadCuotas = Number(document.getElementById("cuotas").value);
+
+const resultado = document.getElementById("resultado");
+
+if (monto <= 0 || tasaAnual < 0 || cantidadCuotas <= 0) {
+
+resultado.innerText = "Ingresá valores válidos.";
+
+return;
+
+}
+
+const tasaMensual = tasaAnual / 100 / 12;
+
+let cuota;
+
+if (tasaMensual === 0) {
+
+cuota = monto / cantidadCuotas;
+
+} else {
+
+cuota =
+monto *
+(
+tasaMensual *
+Math.pow(1 + tasaMensual, cantidadCuotas)
+) /
+(
+Math.pow(1 + tasaMensual, cantidadCuotas) - 1
+);
+
+}
+
+const total = cuota * cantidadCuotas;
+
+resultado.innerText =
+"Cuota estimada: $" +
+cuota.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+}) +
+" | Total estimado: $" +
+total.toLocaleString("es-AR", {
+minimumFractionDigits: 2,
+maximumFractionDigits: 2
+});
+
+}
+
+</script>
+
+</body>
+
+  </html>
